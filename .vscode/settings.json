@@ -1,0 +1,6 @@
+{
+    "codingcopilot.autoRun": true,
+    "codingcopilot.taskList": true,
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "html.autoClosingTags": false
+}

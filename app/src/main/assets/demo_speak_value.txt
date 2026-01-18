@@ -1,0 +1,25 @@
+<speak sub-title="autoUI" pitch="1" speed="1" volume="1">
+    <uievent>
+        <data>
+            <video>
+    https://media.youyan.xyz/youyan/user_upload_prod/116706_4584fa96c199462f8e479e.mp4</video>
+            <cover>
+    https://media.youyan.xyz/youyan/user_upload_prod/116706_a2cdf99d793e434db0e4b0.png</cover>
+            <axis_id>101</axis_id>
+        </data>
+        <type>widget_video</type>
+    </uievent>
+            <ue4event>
+        <type>ka_intent</type>
+        <data>
+            <ka_intent>Welcome</ka_intent>
+        </data>
+    </ue4event>
+    霜降已过，初冬将至。虽然天气渐冷，但荣成市旅游市场依然"热"力十足。频繁冲上热搜，在这背后是荣成市依托本地特色，精准深耕客源市场，优化营销策略，吸引更多游客"奔荣而来"探访"诗与远方"。最近，一份关于荣成市2024年旺季旅游市场分析的"复盘"报告，在荣成市文旅康养产业链专班中引起广泛关注。特别是游客画像分析板块中，关于"7至18岁和30至40岁两个年龄段，占游客量50.8%，同比增长5个百分点"的数据，让专班成员格外兴奋。荣成市文化和旅游局副局长赛利英介绍，数据增长的背后，说明我们精准分析游客画像，有针对性提升文旅产品和游客需求匹配度的路子走对了。考虑该群体主要集中为亲子家庭，荣成市充分调动文旅资源，并通过专业咨询、下沉体验、问卷调研、专题访谈等方式，对旅游客源进行精准分析，全面洞察游客消费心理，对亲子景区、赶海体验、研学方式等，开展旅游体验提升行动。
+    <uievent>
+        <type>widget_close</type>
+        <data>
+            <axis_id>0</axis_id>
+        </data>
+    </uievent>
+</speak>

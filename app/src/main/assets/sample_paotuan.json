@@ -1,0 +1,194 @@
+{
+  "id": "paotuan_sample_001",
+  "title": "龙之宝藏",
+  "gameType": "PAOTUAN",
+  "rootNodeId": "scene_001",
+  "nodes": [
+    {
+      "id": "scene_001",
+      "description": "冒险的开始",
+      "narrativeText": "各位冒险者，欢迎来到我们的公会！今天我接到了一个神秘的委托——前往龙之山寻找失落的宝藏。传说中，宝藏由一头古老的恶龙守护，但据说只有真正的勇者才能得到它。你们准备好了吗？",
+      "objectives": [
+        {
+          "id": "obj_001",
+          "description": "组成冒险小队并出发",
+          "isOptional": false,
+          "completionConditions": []
+        }
+      ],
+      "allowedActions": ["TALK", "DICE_ROLL"],
+      "cluePool": {
+        "publicClues": [
+          {
+            "id": "clue_001",
+            "name": "委托信",
+            "description": "委托人留下的信中提到：'宝藏藏在山顶的洞穴中，但需要通过勇者试炼'",
+            "importance": "IMPORTANT",
+            "targetPlayers": [],
+            "isDistributed": false
+          }
+        ],
+        "privateClues": []
+      },
+      "diceRules": {
+        "ruleType": "D20_SYSTEM",
+        "diceType": "D20",
+        "difficulty": 10,
+        "successThreshold": 11,
+        "criticalSuccess": 20,
+        "criticalFailure": 1,
+        "modifiers": []
+      },
+      "imageUrl": null,
+      "isCritical": true
+    },
+    {
+      "id": "scene_002",
+      "description": "山脚下的村庄",
+      "narrativeText": "你们到达了龙之山脚下的村庄。村民们看起来很惊恐，他们说最近龙经常出来骚扰。村长告诉你，想要安全上山，必须先通过试炼：通过智慧、勇气和力量的考验。",
+      "objectives": [
+        {
+          "id": "obj_002",
+          "description": "完成三重试炼",
+          "isOptional": false,
+          "completionConditions": []
+        }
+      ],
+      "allowedActions": ["SEARCH", "TALK", "INVESTIGATE", "DICE_ROLL", "ATTACK"],
+      "cluePool": {
+        "publicClues": [
+          {
+            "id": "clue_002",
+            "name": "试炼的秘密",
+            "description": "村长悄悄告诉你：'龙其实已经沉睡了多年，只是有人在利用它的名声'",
+            "importance": "CRITICAL",
+            "targetPlayers": [],
+            "isDistributed": false
+          }
+        ],
+        "privateClues": []
+      },
+      "diceRules": {
+        "ruleType": "D20_SYSTEM",
+        "diceType": "D20",
+        "difficulty": 12,
+        "successThreshold": 13,
+        "criticalSuccess": 20,
+        "criticalFailure": 1,
+        "modifiers": []
+      },
+      "imageUrl": null,
+      "isCritical": false
+    },
+    {
+      "id": "scene_003",
+      "description": "山顶龙穴",
+      "narrativeText": "经过重重试炼，你们终于来到了山顶的龙穴。洞穴深处，一头巨大的红龙正在沉睡。但你注意到，龙的锁链上刻着古老的符文——这是某种束缚魔法！",
+      "objectives": [
+        {
+          "id": "obj_003",
+          "description": "解开龙的束缚或击败恶人",
+          "isOptional": false,
+          "completionConditions": []
+        }
+      ],
+      "allowedActions": ["SEARCH", "TALK", "INVESTIGATE", "DICE_ROLL", "ATTACK"],
+      "cluePool": {
+        "publicClues": [
+          {
+            "id": "clue_003",
+            "name": "符文的真相",
+            "description": "符文上记载着：'以勇者之血，唤醒沉睡之龙'",
+            "importance": "CRITICAL",
+            "targetPlayers": [],
+            "isDistributed": false
+          }
+        ],
+        "privateClues": []
+      },
+      "diceRules": {
+        "ruleType": "D20_SYSTEM",
+        "diceType": "D20",
+        "difficulty": 15,
+        "successThreshold": 16,
+        "criticalSuccess": 20,
+        "criticalFailure": 1,
+        "modifiers": []
+      },
+      "imageUrl": null,
+      "isCritical": true
+    },
+    {
+      "id": "scene_004",
+      "description": "结局：真正的宝藏",
+      "narrativeText": "你们做出了明智的选择！原来所谓的恶龙只是一只被黑魔法师控制的守护兽。你们解除了束缚，龙感激地赠予你们真正的宝藏——不是金银财宝，而是友谊与勇气！恭喜你们完成了这场冒险！",
+      "objectives": [],
+      "allowedActions": [],
+      "cluePool": {
+        "publicClues": [],
+        "privateClues": []
+      },
+      "diceRules": null,
+      "imageUrl": null,
+      "isCritical": true
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_001",
+      "fromNodeId": "scene_001",
+      "toNodeId": "scene_002",
+      "condition": {
+        "type": "DICE_SUCCESS",
+        "requiredClues": [],
+        "requiredDiceResult": {
+          "minResult": 11,
+          "maxResult": 20,
+          "mustSucceed": true
+        },
+        "requiredDecision": null,
+        "narrativeTrigger": null
+      },
+      "priority": 1,
+      "isFailSafe": false
+    },
+    {
+      "id": "edge_002",
+      "fromNodeId": "scene_002",
+      "toNodeId": "scene_003",
+      "condition": {
+        "type": "CLUE_FOUND",
+        "requiredClues": ["clue_002"],
+        "requiredDiceResult": null,
+        "requiredDecision": null,
+        "narrativeTrigger": null
+      },
+      "priority": 1,
+      "isFailSafe": false
+    },
+    {
+      "id": "edge_003",
+      "fromNodeId": "scene_003",
+      "toNodeId": "scene_004",
+      "condition": {
+        "type": "CLUE_FOUND",
+        "requiredClues": ["clue_003"],
+        "requiredDiceResult": null,
+        "requiredDecision": null,
+        "narrativeTrigger": null
+      },
+      "priority": 1,
+      "isFailSafe": false
+    }
+  ],
+  "globalClues": [],
+  "failSafePolicies": [
+    {
+      "id": "failsafe_001",
+      "triggerCondition": "攻击沉睡的龙",
+      "targetNodeId": "scene_002",
+      "narrativeGuide": "DM引导：'等等！这只龙是被束缚的，也许我们应该先调查一下？'",
+      "autoExecute": true
+    }
+  ]
+}

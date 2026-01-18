@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@android:color/white"
+    tools:context=".RoomCreationActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← 返回"
+            style="@style/Widget.Material3.Button.TextButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="创建房间"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@id/btn_back"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_room_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="房间名称"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_room_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_max_players"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="最大人数"
+            app:layout_constraintTop_toBottomOf="@id/til_room_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_max_players"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLines="1"
+                android:text="6" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="房间密码（可选）"
+            app:layout_constraintTop_toBottomOf="@id/til_max_players"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_upload_script"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="📁 上传剧本文件"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            app:layout_constraintTop_toBottomOf="@id/til_password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
+            android:padding="12dp" />
+
+        <Button
+            android:id="@+id/btn_ai_generate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="🤖 AI 生成剧本"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            app:layout_constraintTop_toBottomOf="@id/btn_upload_script"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:padding="12dp" />
+
+        <Button
+            android:id="@+id/btn_builtin_script"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="📚 使用内置剧本"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            app:layout_constraintTop_toBottomOf="@id/btn_ai_generate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:padding="12dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_script_theme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="剧本主题"
+            app:layout_constraintTop_toBottomOf="@id/btn_builtin_script"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_script_theme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1"
+                android:hint="例如：古堡谜案、时空穿越..." />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_script_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="支持格式: JSON, TXT, ZIP 或使用 AI 生成"
+            android:textSize="12sp"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@id/til_script_theme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btn_create_room"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="创建房间"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_script_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="32dp"
+            android:padding="14dp"
+            android:layout_marginBottom="24dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

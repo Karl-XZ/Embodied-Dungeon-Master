@@ -1,0 +1,182 @@
+{
+  "id": "jubensha_sample_001",
+  "title": "午夜凶铃",
+  "gameType": "JUBENSHA",
+  "rootNodeId": "scene_001",
+  "nodes": [
+    {
+      "id": "scene_001",
+      "description": "午夜的古堡",
+      "narrativeText": "午夜钟声响起，你独自一人来到了这座神秘的古堡。大门敞开着，仿佛在邀请你进入。月光洒在古老的石墙上，隐约可见城堡内部闪烁的烛光。",
+      "objectives": [
+        {
+          "id": "obj_001",
+          "description": "进入古堡并探索大厅",
+          "isOptional": false,
+          "completionConditions": []
+        }
+      ],
+      "allowedActions": ["SEARCH", "TALK", "INVESTIGATE"],
+      "cluePool": {
+        "publicClues": [
+          {
+            "id": "clue_001",
+            "name": "大门上的信",
+            "description": "大门上钉着一封信，上面写着：'只有真心的人才能找到真相'",
+            "importance": "IMPORTANT",
+            "targetPlayers": [],
+            "isDistributed": false
+          }
+        ],
+        "privateClues": []
+      },
+      "diceRules": null,
+      "imageUrl": null,
+      "isCritical": true
+    },
+    {
+      "id": "scene_002",
+      "description": "古堡大厅",
+      "narrativeText": "你走进了古堡的大厅。厅内摆放着古老的家具，墙上挂着许多画像。大厅中央有一张长桌，桌上放着一个精致的音乐盒。",
+      "objectives": [
+        {
+          "id": "obj_002",
+          "description": "调查大厅的物品",
+          "isOptional": false,
+          "completionConditions": []
+        }
+      ],
+      "allowedActions": ["SEARCH", "TALK", "INVESTIGATE", "DICE_ROLL"],
+      "cluePool": {
+        "publicClues": [
+          {
+            "id": "clue_002",
+            "name": "音乐盒的秘密",
+            "description": "音乐盒底部刻着：'月光下的玫瑰花园'",
+            "importance": "CRITICAL",
+            "targetPlayers": [],
+            "isDistributed": false
+          }
+        ],
+        "privateClues": []
+      },
+      "diceRules": {
+        "ruleType": "D100_SYSTEM",
+        "diceType": "D100",
+        "difficulty": 60,
+        "successThreshold": 61,
+        "criticalSuccess": 95,
+        "criticalFailure": 5,
+        "modifiers": []
+      },
+      "imageUrl": null,
+      "isCritical": false
+    },
+    {
+      "id": "scene_003",
+      "description": "玫瑰花园",
+      "narrativeText": "根据音乐盒的提示，你来到了古堡后面的玫瑰花园。月光下，玫瑰散发着诡异的红光。花园中央有一座古老的喷泉，喷泉下似乎藏着什么东西...",
+      "objectives": [
+        {
+          "id": "obj_003",
+          "description": "找到喷泉下的秘密",
+          "isOptional": false,
+          "completionConditions": []
+        }
+      ],
+      "allowedActions": ["SEARCH", "TALK", "INVESTIGATE", "DICE_ROLL"],
+      "cluePool": {
+        "publicClues": [
+          {
+            "id": "clue_003",
+            "name": "密室的钥匙",
+            "description": "喷泉下发现了一把古老的钥匙，上面刻着'地下室'",
+            "importance": "CRITICAL",
+            "targetPlayers": [],
+            "isDistributed": false
+          }
+        ],
+        "privateClues": []
+      },
+      "diceRules": {
+        "ruleType": "D100_SYSTEM",
+        "diceType": "D100",
+        "difficulty": 50,
+        "successThreshold": 51,
+        "criticalSuccess": 90,
+        "criticalFailure": 10,
+        "modifiers": []
+      },
+      "imageUrl": null,
+      "isCritical": true
+    },
+    {
+      "id": "scene_004",
+      "description": "结局：真相大白",
+      "narrativeText": "你终于找到了古堡的秘密！原来这座古堡曾是百年前一位伯爵的住所，他为了守护心爱女子的灵魂，创造了这个谜题。而你，作为真正解开了谜题的人，获得了女子的祝福。恭喜你完成了这场冒险！",
+      "objectives": [],
+      "allowedActions": [],
+      "cluePool": {
+        "publicClues": [],
+        "privateClues": []
+      },
+      "diceRules": null,
+      "imageUrl": null,
+      "isCritical": true
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_001",
+      "fromNodeId": "scene_001",
+      "toNodeId": "scene_002",
+      "condition": {
+        "type": "CLUE_FOUND",
+        "requiredClues": ["clue_001"],
+        "requiredDiceResult": null,
+        "requiredDecision": null,
+        "narrativeTrigger": null
+      },
+      "priority": 1,
+      "isFailSafe": false
+    },
+    {
+      "id": "edge_002",
+      "fromNodeId": "scene_002",
+      "toNodeId": "scene_003",
+      "condition": {
+        "type": "CLUE_FOUND",
+        "requiredClues": ["clue_002"],
+        "requiredDiceResult": null,
+        "requiredDecision": null,
+        "narrativeTrigger": null
+      },
+      "priority": 1,
+      "isFailSafe": false
+    },
+    {
+      "id": "edge_003",
+      "fromNodeId": "scene_003",
+      "toNodeId": "scene_004",
+      "condition": {
+        "type": "CLUE_FOUND",
+        "requiredClues": ["clue_003"],
+        "requiredDiceResult": null,
+        "requiredDecision": null,
+        "narrativeTrigger": null
+      },
+      "priority": 1,
+      "isFailSafe": false
+    }
+  ],
+  "globalClues": [],
+  "failSafePolicies": [
+    {
+      "id": "failsafe_001",
+      "triggerCondition": "迷失方向",
+      "targetNodeId": "scene_001",
+      "narrativeGuide": "DM引导：'你似乎走得太远了，不如回到古堡大厅重新思考一下？'",
+      "autoExecute": false
+    }
+  ]
+}

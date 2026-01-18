@@ -1,0 +1,158 @@
+{
+  "id": "haitang_sample_001",
+  "title": "神秘的晚餐",
+  "gameType": "HAITANG",
+  "rootNodeId": "scene_001",
+  "nodes": [
+    {
+      "id": "scene_001",
+      "description": "故事开始",
+      "narrativeText": "今天我遇到了一件奇怪的事情。让我慢慢告诉你们，你们可以问我任何问题，每次我只能回答'是'、'不是'或者'不相关'。准备好了吗？",
+      "objectives": [
+        {
+          "id": "obj_001",
+          "description": "猜出故事的真相",
+          "isOptional": false,
+          "completionConditions": []
+        }
+      ],
+      "allowedActions": ["TALK"],
+      "cluePool": {
+        "publicClues": [
+          {
+            "id": "clue_001",
+            "name": "提示一",
+            "description": "这个故事发生在现代",
+            "importance": "NORMAL",
+            "targetPlayers": [],
+            "isDistributed": false
+          }
+        ],
+        "privateClues": []
+      },
+      "diceRules": null,
+      "imageUrl": null,
+      "isCritical": true
+    },
+    {
+      "id": "scene_002",
+      "description": "故事进展中",
+      "narrativeText": "很好，你们开始提问了。让我再给你们一个提示：这个故事和食物有关，但不是关于食物中毒。",
+      "objectives": [
+        {
+          "id": "obj_002",
+          "description": "继续追问",
+          "isOptional": false,
+          "completionConditions": []
+        }
+      ],
+      "allowedActions": ["TALK"],
+      "cluePool": {
+        "publicClues": [
+          {
+            "id": "clue_002",
+            "name": "提示二",
+            "description": "故事的主角是一个人",
+            "importance": "NORMAL",
+            "targetPlayers": [],
+            "isDistributed": false
+          }
+        ],
+        "privateClues": []
+      },
+      "diceRules": null,
+      "imageUrl": null,
+      "isCritical": false
+    },
+    {
+      "id": "scene_003",
+      "description": "接近真相",
+      "narrativeText": "你们越来越接近真相了！最后一个提示：这个故事的主角因为晚餐而死亡，但不是因为被杀，也不是因为疾病。",
+      "objectives": [
+        {
+          "id": "obj_003",
+          "description": "猜出死因",
+          "isOptional": false,
+          "completionConditions": []
+        }
+      ],
+      "allowedActions": ["TALK"],
+      "cluePool": {
+        "publicClues": [
+          {
+            "id": "clue_003",
+            "name": "提示三",
+            "description": "主角是一个特殊的角色",
+            "importance": "IMPORTANT",
+            "targetPlayers": [],
+            "isDistributed": false
+          }
+        ],
+        "privateClues": []
+      },
+      "diceRules": null,
+      "imageUrl": null,
+      "isCritical": false
+    },
+    {
+      "id": "scene_004",
+      "description": "揭晓真相",
+      "narrativeText": "太棒了！你们猜对了！故事是这样的：主角是一个宇航员，他在太空中吃晚餐。晚餐的汤不小心洒了出来，在失重环境下，汤变成了漂浮的液滴。宇航员以为那是宝石，伸手去抓，结果飘出了飞船，无法再返回。这就是'神秘的晚餐'——一次因好奇心而导致的太空悲剧。",
+      "objectives": [],
+      "allowedActions": [],
+      "cluePool": {
+        "publicClues": [],
+        "privateClues": []
+      },
+      "diceRules": null,
+      "imageUrl": null,
+      "isCritical": true
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_001",
+      "fromNodeId": "scene_001",
+      "toNodeId": "scene_002",
+      "condition": {
+        "type": "NARRATIVE_INPUT",
+        "requiredClues": [],
+        "requiredDiceResult": null,
+        "requiredDecision": null,
+        "narrativeTrigger": "提问"
+      },
+      "priority": 1,
+      "isFailSafe": false
+    },
+    {
+      "id": "edge_002",
+      "fromNodeId": "scene_002",
+      "toNodeId": "scene_003",
+      "condition": {
+        "type": "NARRATIVE_INPUT",
+        "requiredClues": [],
+        "requiredDiceResult": null,
+        "requiredDecision": null,
+        "narrativeTrigger": "继续"
+      },
+      "priority": 1,
+      "isFailSafe": false
+    },
+    {
+      "id": "edge_003",
+      "fromNodeId": "scene_003",
+      "toNodeId": "scene_004",
+      "condition": {
+        "type": "NARRATIVE_INPUT",
+        "requiredClues": [],
+        "requiredDiceResult": null,
+        "requiredDecision": null,
+        "narrativeTrigger": "宇航员"
+      },
+      "priority": 1,
+      "isFailSafe": false
+    }
+  ],
+  "globalClues": [],
+  "failSafePolicies": []
+}

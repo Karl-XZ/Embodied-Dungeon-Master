@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TRPG DM 数字主持</string>
+    <string name="setting_title">连接参数</string>
+    <string name="app_id">appId</string>
+    <string name="app_secret">appSecret</string>
+    <string name="app_edit_id_hint">请输入appId</string>
+    <string name="app_edit_secret_hint">请输入appSecret</string>
+    <string name="click_start">点击进入</string>
+
+</resources>

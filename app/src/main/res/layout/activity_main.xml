@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/cl_root"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/avatar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/controll_pad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!--<Spinner
+            android:id="@+id/roleSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <Button
+            android:id="@+id/subtitle_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="字幕已开启"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/init_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="初始化"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/subtitle_btn" />
+
+        <Button
+            android:id="@+id/release_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="销毁"
+            app:layout_constraintStart_toEndOf="@id/init_btn"
+            app:layout_constraintTop_toTopOf="@id/init_btn" />
+
+        <Button
+            android:id="@+id/pre_cache_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="预缓存"
+            app:layout_constraintStart_toEndOf="@id/release_btn"
+            app:layout_constraintTop_toTopOf="@id/init_btn" />
+
+
+        <Button
+            android:id="@+id/speak_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="说话"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/init_btn" />
+
+
+        <Button
+            android:id="@+id/listen_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="listen"
+            app:layout_constraintStart_toEndOf="@id/speak_btn"
+            app:layout_constraintTop_toTopOf="@id/speak_btn" />
+
+
+        <Button
+            android:id="@+id/think_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="think"
+            app:layout_constraintStart_toEndOf="@id/listen_btn"
+            app:layout_constraintTop_toTopOf="@id/speak_btn" />
+
+
+        <Button
+            android:id="@+id/interactive_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="interactiveidle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/speak_btn" />
+
+
+
+        <Button
+            android:id="@+id/reconnect_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="重连"
+            app:layout_constraintStart_toEndOf="@id/interactive_btn"
+            app:layout_constraintTop_toBottomOf="@id/think_btn"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            />
+        <Button
+            android:id="@+id/offline_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="切离线"
+            app:layout_constraintStart_toEndOf="@id/reconnect_btn"
+            app:layout_constraintTop_toBottomOf="@id/think_btn" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/debug_msg_tv"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@id/controll_pad" />
+
+    <TextView
+        android:id="@+id/subtitle_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="#FF0000"
+        android:textColorHint="#FF0000"
+        android:textSize="20dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/debug_msg_tv" />
+
+    <TextView
+        android:id="@+id/session_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="#FF0000"
+        android:textColorHint="#FF0000"
+        android:textSize="10dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/frameIndex_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="#FF0000"
+        android:textColorHint="#FF0000"
+        android:textSize="10dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/session_tv" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,36 @@
+# IDE
+.idea/
+*.iml
+
+# Gradle
+.gradle
+/local.properties
+
+# macOS
+.DS_Store
+
+# Build outputs
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Android
+*.apk
+*.ap_
+*.aab
+
+# Keystore files
+*.jks
+*.keystore
+
+# Web-trpg-app (ignore entire directory)
+web-trpg-app/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
